@@ -11,4 +11,8 @@ export class AlumnosService {
   students() {
     return this.http.get('http://demo0253989.mockable.io/alumnos');
   }
+
+  students_by_id(id) {
+    return this.http.get('http://demo0253989.mockable.io/alumnos/' + id);
+  }
 }

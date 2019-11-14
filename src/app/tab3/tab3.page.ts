@@ -12,8 +12,7 @@ export class Tab3Page {
   constructor(private alumnos: AlumnosService,
               public alertController: AlertController) {}
 
-  llamar_alumnos() {
-    console.log('ENTRO EN LA FUNCION QUE LLAMA ALUMNOS');
+  ngOnInit() {
     this.alumnos.students().subscribe(
       (res: any) => {
         console.log('DENTRO DEL COCHINERO');
@@ -24,15 +23,7 @@ export class Tab3Page {
     );
   }
 
-  // go() {
-  //   console.log("ENTRO EN LA FUNCION");
-  //   this.students.students().subscribe(
-  //     (res: any) => {
-  //       console.log("DENTRO DEL COCHINERO");
-  //       console.log(res);
-  //     },
-  //     err => {
-  //     }
-  //   );
-  // }
+  llamar_alumnos() {
+    console.log('ENTRO EN LA FUNCION QUE LLAMA ALUMNOS');
+  }
 }
