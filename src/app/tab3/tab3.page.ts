@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AlumnosService } from 'src/app/api/alumnos.service';
 
 @Component({
   selector: 'app-tab3',
@@ -7,6 +8,29 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  constructor() {}
+  constructor(private alumnos: AlumnosService) {}
 
+  llamar_alumnos() {
+    console.log('ENTRO EN LA FUNCION QUE LLAMA ALUMNOS');
+    this.alumnos.students().subscribe(
+      (res: any) => {
+        console.log('DENTRO DEL COCHINERO');
+        console.log(res);
+      },
+      err => {
+      }
+    );
+  }
+
+  // go() {
+  //   console.log("ENTRO EN LA FUNCION");
+  //   this.students.students().subscribe(
+  //     (res: any) => {
+  //       console.log("DENTRO DEL COCHINERO");
+  //       console.log(res);
+  //     },
+  //     err => {
+  //     }
+  //   );
+  // }
 }
