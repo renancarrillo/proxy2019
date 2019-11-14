@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AlumnosService } from 'src/app/api/alumnos.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab3',
@@ -8,7 +9,8 @@ import { AlumnosService } from 'src/app/api/alumnos.service';
 })
 export class Tab3Page {
 
-  constructor(private alumnos: AlumnosService) {}
+  constructor(private alumnos: AlumnosService,
+              public alertController: AlertController) {}
 
   llamar_alumnos() {
     console.log('ENTRO EN LA FUNCION QUE LLAMA ALUMNOS');

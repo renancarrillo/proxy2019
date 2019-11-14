@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab2',
@@ -8,24 +9,33 @@ import { Component } from '@angular/core';
 export class Tab2Page {
 
   numero: any = 0;
-  constructor() {}
+  constructor(public alertController: AlertController) {}
 
 
-  presionar(){
-    console.log("LO PRESIONASTE");
-    if(this.numero >= 10){
-      console.log("YA ESTA EN CERO");
-    }else{
+  presionar() {
+    console.log('LO PRESIONASTE');
+    if (this.numero >= 10) {
+      this.presentAlert('Aviso', 'Ya estas en el 10');
+    } else {
       this.numero += 1;
     }
   }
 
-  presionar2(){
-    console.log("LO PRESIONASTE");
-    if(this.numero <= 0){
-      console.log("YA ESTA EN CERO");
-    }else{
+  presionar2() {
+    console.log('LO PRESIONASTE');
+    if (this.numero <= 0) {
+      this.presentAlert('Aviso', 'Ya estas en el 0');
+    } else {
       this.numero -= 1;
     }
+  }
+
+  async  presentAlert(title, msg ) {
+    const alertController = await this.alertController.create({
+      header: title,
+      message: msg,
+      buttons: ['Entendido']
+    });
+    await alertController.present();
   }
 }
